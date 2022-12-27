@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: svc-gameoflife
+  annotations:
+    kubernetes.io/ingress.class: "alb"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /gameoflife*
+        backend:
+          service:
+            name: svc-gameoflife
+            port:
+              number: 8080
+        pathType: Exact

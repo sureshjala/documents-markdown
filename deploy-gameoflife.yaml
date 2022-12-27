@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameoflife-deploy
+spec:
+  minReadySeconds: 4
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gameoflife
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      name: gameoflife
+      labels:
+        app: gameoflife
+        ver: "1.0"
+    spec:
+      containers:
+        - name: gameoflife
+          image: jalasuresh/gameoflife:1.0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-gameoflife
+spec:
+  type: LoadBalancer
+  selector:
+    app: gameoflife
+  ports:
+    - name: gol
+      protocol: TCP
+      port: 80
+      targetPort: 8080
