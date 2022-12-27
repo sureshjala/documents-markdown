@@ -189,4 +189,4 @@ spec:
  ```
  http://<external-ip>:<port>/gameoflife
  ```
- ![Alt text](../images/oepnmrs.png)
+![Alt text](images/oepnmrs.png)
