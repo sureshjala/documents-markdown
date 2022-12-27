@@ -187,6 +187,6 @@ spec:
 * after executing the command get's an External Ip then copy the extenal IP and goto google
  >* now search on google as below 
  ```
- http://<external-ip>:<port>/gameoflife
+ http://<external-ip>:<port>/openmrs
  ```
 ![Alt text](images/oepnmrs.png)
