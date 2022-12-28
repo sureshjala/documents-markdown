@@ -26,11 +26,11 @@ exit
 >**DockerFile**
 ```
 FROM maven:3-jdk-8 as mvn
-LABEL author='Khaja'
+LABEL author='suresh'
 RUN git clone https://github.com/openmrs/openmrs-core.git && cd openmrs-core && mvn clean package
  
 FROM tomcat:8
-LABEL author='Khaja'
+LABEL author='suresh'
 COPY --from=mvn /openmrs-core/webapp/target/openmrs.war /usr/local/tomcat/webapps/openmrs.war
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
@@ -187,6 +187,6 @@ spec:
 * after executing the command get's an External Ip then copy the extenal IP and goto google
  >* now search on google as below 
  ```
- http://<external-ip>:<port>/openmrs
+ http://<external-ip>:<port>/openmrsz
  ```
 ![Alt text](images/oepnmrs.png)
